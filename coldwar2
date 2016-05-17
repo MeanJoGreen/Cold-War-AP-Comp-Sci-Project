@@ -3,29 +3,21 @@ import java.util.*;
 import java.awt.*;
 
 public class ColdWar2 {
-   public static void main (String[] args)throws FileNotFoundException{
-   int missile = 60;
-   		/*	File inputFile = new File("ColdWarText.txt");
-            Scanner fileInput = new Scanner(inputFile);
-            //read from file
-            while (fileInput.hasNextLine()) {
-                  String line = fileInput.nextLine();
-                  int length = line.length();
-                  String[] letterPrinter = length;
-            }
-            
-            */
-                     System.out.println("you have a inventory of " + missile + " missiles.");
-                     
-                     move();
-   }
-   
-   public String move(){
-   //need to scan for a city name
-         Scanner console = new Scanner(System.in);
-         System.out.print("What city to attack now? ");
-         String attackCity = console.next();
-         if 
-         return attackCity;
+   public static void main (String[] args){
+   try {
+			File file = new File("ColdWarText.txt");
+			FileReader fileReader = new FileReader(file);
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+			StringBuffer stringBuffer = new StringBuffer();
+			String line;
+			while ((line = bufferedReader.readLine()) != null) {
+				stringBuffer.append(line);
+				stringBuffer.append("\n");
+			}
+			fileReader.close();
+			System.out.println(stringBuffer.toString());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
    }
 }
