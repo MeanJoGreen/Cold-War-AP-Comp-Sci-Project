@@ -17,7 +17,8 @@ public class UnitedNuke {
          return nuke;
    }
    
-   public int[] NukeArray() {
-      return CitysNukes; 
+   public int[] Nukes() {
+   int numberNuke
+      return ; 
    }  
 } 
