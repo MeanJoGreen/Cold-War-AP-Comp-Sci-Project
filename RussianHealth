@@ -1,0 +1,85 @@
+public class RussianHealth{
+   
+   public void Moscow(boolean destroyed){
+         int population = 11503501;
+         destroyed = false;
+      }
+      
+      public void SaintPetersburg(boolean destroyed){
+         int population = 4879566;
+         destroyed = false;
+      }
+      public void Novosibirsk(boolean destroyed){
+         int population = 	1473754;
+         destroyed = false;
+      }
+      public void Yekaterinburg(boolean destroyed){
+         int population = 1349772;
+         destroyed = false;
+      }
+      public void NizhnyNovgorod(boolean destroyed){
+         int population = 1250619;
+         destroyed = false;
+      }
+      public void Samara(boolean destroyed){
+         int population = 	1164685;
+         destroyed = false;
+      }
+      public void Omsk(boolean destroyed){
+         int population = 1154116;
+         destroyed = false;
+      }
+      public void Kazan(boolean destroyed){
+         int population = 1143535	;
+         destroyed = false;
+      }
+      public void Chelyabinsk(boolean destroyed){
+         int population = 1130132;
+         destroyed = false;
+      }
+      public void RostovonDon(boolean destroyed){
+         int population = 	1089261;
+         destroyed = false;
+      }
+      public void Ufa(boolean destroyed){
+         int population = 1062319;
+         destroyed = false;
+      }
+      public void Volgograd(boolean destroyed){
+         int population = 1021215;
+         destroyed = false;
+      }
+      public void Perm(boolean destroyed){
+         int population = 991162;
+         destroyed = false;
+      }
+      public void Krasnoyarsk(boolean destroyed){
+         int population = 973826;
+         destroyed = false;
+      }
+      public void Voronezh(boolean destroyed){
+         int population = 889680;
+         destroyed = false;
+      } 
+      public void Saratov(boolean destroyed){
+         int population = 837900;
+         destroyed = false;
+      } 
+      public void Krasnodar(boolean destroyed){
+         int population = 744995;
+         destroyed = false;
+      } 
+      public void Tolyatti(boolean destroyed){
+         int population = 719632;
+         destroyed = false;
+      } 
+      public void Izhevsk(boolean destroyed){
+         int population = 627734;
+         destroyed = false;
+      }     
+      public void Ulyanovsk(boolean destroyed){
+         int population = 614786;
+         destroyed = false;
+      }       
+}
+   
