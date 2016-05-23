@@ -29,16 +29,8 @@ public class ColdWar2 {
       System.out.println("What city would you like to nuke?");
       System.out.println("Type RussianCities for what cities are still alive.");
       System.out.println("For how many nukes you have type Nuke");
-      String whichCity = reader.next();
-      
-      int l = UnitedNuke.Nukes();
-
-      //if(whichCity.equals("Nuke")){
-        // for(int p = 0; p < 
-        
-      //}
-         
+      String whichellCity = reader.next();
+      City bob = new City("bob");
+      int l = UnitedNuke.UnitedNukesTotal();
    }
-
-   
 }
