@@ -1,0 +1,6 @@
+Moscow,11503501
+SaintPetersburg,4879566
+Novosibirsk,1473754
+Yekaterinburg,1349772
+NizhnyNovgorod,1250619
+Samara,1164685
