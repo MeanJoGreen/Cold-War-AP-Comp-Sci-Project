@@ -4,11 +4,28 @@ import java.awt.*;
 import java.util.Scanner;
 
 
-public class ColdWar2 {
-   public static void main (String[] args){
+public class ColdWarAbridged {
+   public static void main (String[] args)throws FileNotFoundException{
+   City city = new City();
+   //City bob = new City("bob");   
+   Scanner input = new Scanner(System.in);
+   File file = new File("cities.txt");
+   input = new Scanner(file);
+   int k = 0;
+
+   while (input.hasNextLine()) {
+      String data = input.nextLine();
+      String[] split = data.split(",");
+      String name = split[0];
+      String population = split[1];
+      int pop = Integer.valueOf(population);
+      city.makeCity(name,pop,k);
+      k++;
+  }
+
       try {
-   			File file = new File("ColdWarText.txt");
-   			FileReader fileReader = new FileReader(file);
+   			File fifle = new File("WarText.txt");
+   			FileReader fileReader = new FileReader(fifle);
    			BufferedReader bufferedReader = new BufferedReader(fileReader);
    			StringBuffer stringBuffer = new StringBuffer();
    			String line;
@@ -16,13 +33,15 @@ public class ColdWar2 {
    				stringBuffer.append(line);
    				stringBuffer.append("\n");
    			}
+            
    			fileReader.close();
    			System.out.println(stringBuffer.toString());
    		} 
+         
       catch (IOException e) {
 			e.printStackTrace();
 		}
-      turn();
+      
    }
    public static void turn(){
       Scanner reader = new Scanner(System.in);
@@ -30,7 +49,5 @@ public class ColdWar2 {
       System.out.println("Type RussianCities for what cities are still alive.");
       System.out.println("For how many nukes you have type Nuke");
       String whichellCity = reader.next();
-      City bob = new City("bob");
-      int l = UnitedNuke.UnitedNukesTotal();
    }
 }
