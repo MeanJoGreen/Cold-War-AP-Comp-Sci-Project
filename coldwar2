@@ -1,10 +1,8 @@
 import java.io.*;
 import java.util.*;
 import java.awt.*;
-import java.util.Scanner;
 
-
-public class ColdWarAbridged {
+public class ColdWar2 {
    public static void main (String[] args)throws FileNotFoundException{
    City city = new City();
    //City bob = new City("bob");   
@@ -22,8 +20,8 @@ public class ColdWarAbridged {
       city.makeCity(name,pop,k);
       k++;
   }
-
-      try {
+  
+       try {
    			File fifle = new File("WarText.txt");
    			FileReader fileReader = new FileReader(fifle);
    			BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -40,14 +38,15 @@ public class ColdWarAbridged {
          
       catch (IOException e) {
 			e.printStackTrace();
-		}
-      
+		} 
+      turn();
    }
    public static void turn(){
-      Scanner reader = new Scanner(System.in);
+      Scanner request = new Scanner(System.in);
       System.out.println("What city would you like to nuke?");
-      System.out.println("Type RussianCities for what cities are still alive.");
       System.out.println("For how many nukes you have type Nuke");
-      String whichellCity = reader.next();
+      String demand = request.next();
+      if(demand.toString().equals("Nuke);
+      
    }
 }
