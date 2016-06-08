@@ -1,3 +1,4 @@
+
 import java.util.*;
 public class City {
    final Random random = new Random();
@@ -11,6 +12,7 @@ public class City {
       if (placement <20){
          country = 2;
       }
-   }  
+   } 
+   public int nukeTotal( 
 }
     
