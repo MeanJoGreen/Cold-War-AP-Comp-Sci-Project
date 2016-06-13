@@ -4,24 +4,35 @@ import java.awt.*;
 
 public class ColdWar2 {
    public static void main (String[] args)throws FileNotFoundException{
-   City city = new City();
-   //City bob = new City("bob");   
+      City[] usArray = new City[20];
+      City[] ussrArray = new City[20];
+      
    Scanner input = new Scanner(System.in);
    File file = new File("cities.txt");
    input = new Scanner(file);
-   int k = 0;
+   int k = 1;
 
-   while (input.hasNextLine()) {
-      String data = input.nextLine();
-      String[] split = data.split(",");
-      String name = split[0];
-      String population = split[1];
-      int pop = Integer.valueOf(population);
-      city.makeCity(name,pop,k);
-      k++;
+   for (int i = 0; i < 20; i++){
+         String data = input.nextLine();
+         String[] split = data.split(",");
+         String name = split[0];
+         String population = split[1];
+         int pop = Integer.valueOf(population);
+         System.out.print(name);         
+         System.out.println(population);
+         
+         if (k <= 20){
+             ussrArray[i] = new City(name, pop); 
+         }
+         else if(k >= 21){
+             usArray[i] = new City(name, pop);    
+         }       
+
+         k++; 
   }
   
-       try {
+  
+     /*  try {
    			File fifle = new File("WarText.txt");
    			FileReader fileReader = new FileReader(fifle);
    			BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -30,23 +41,19 @@ public class ColdWar2 {
    			while ((line = bufferedReader.readLine()) != null) {
    				stringBuffer.append(line);
    				stringBuffer.append("\n");
-   			}
-            
+   			} 
    			fileReader.close();
    			System.out.println(stringBuffer.toString());
-   		} 
-         
+   		}  
       catch (IOException e) {
 			e.printStackTrace();
 		} 
-      turn();
+*/
    }
    public static void turn(){
       Scanner request = new Scanner(System.in);
       System.out.println("What city would you like to nuke?");
       System.out.println("For how many nukes you have type Nuke");
-      String demand = request.next();
-      if(demand.toString().equals("Nuke);
-      
+      String demand = request.next();      
    }
 }
