@@ -18,4 +18,23 @@ Krasnodar,744995
 Tolyatti,719632
 Izhevsk,627734
 Ulyanovsk,614786
-
+NewYork,8491079
+LasAngeles,3928864
+Chicago,2722389
+Houston,2239558
+Philadelphia,1560297
+Phoenix,1537058
+San Antonio,1436697
+San Diego,1381069
+Dallas,1281047
+San Jose,1015785
+Austin,912791
+Jacksonville,853382
+San Francisco,852469	
+Indianapolis,848788	
+Columbus,835957
+Fort Worth,812238
+Charlotte,809958
+Detroit,680250
+El Paso,679036
+Seattle,668342
