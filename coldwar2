@@ -10,7 +10,6 @@ public class ColdWar2 {
    Scanner input = new Scanner(System.in);
    File file = new File("cities.txt");
    input = new Scanner(file);
-   int k = 1;
 
    for (int i = 0; i < 20; i++){
          String data = input.nextLine();
@@ -18,17 +17,8 @@ public class ColdWar2 {
          String name = split[0];
          String population = split[1];
          int pop = Integer.valueOf(population);
-         System.out.print(name);         
-         System.out.println(population);
-         
-         if (k <= 20){
-             ussrArray[i] = new City(name, pop); 
-         }
-         else if(k >= 21){
-             usArray[i] = new City(name, pop);    
-         }       
-
-         k++; 
+         System.out.println(name, population);
+         ussrArray[i] = new City(name, pop);     
   }
   
   
