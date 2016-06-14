@@ -6,18 +6,18 @@ Novgo,1250619
 Samara,1164685
 Omsk,1154116
 Kazan,1143535
-Chelyabinsk,1130132
-RostovonDon,1089261
+Chelya,1130132
+Rosto,1089261
 Ufa,1062319
 Volgograd,1021215
 Perm,991162
-Krasnoyarsk,973826
-Voronezh,889680
-Saratov,837900
-Krasnodar,744995
-Tolyatti,719632
-Izhevsk,627734
-Ulyanovsk,614786
+Krasno,973826
+Voro,889680
+Sarat,837900
+Kras,744995
+Toly,719632
+Izhev,627734
+Ulyanovs,614786
 NewYork,8491079
 LasAngeles,3928864
 Chicago,2722389
@@ -30,8 +30,8 @@ Dallas,1281047
 San Jose,1015785
 Austin,912791
 Jacksonville,853382
-San Francisco,852469	
-Indianapolis,848788	
+San Francisco,852469
+Indianapolis,848788
 Columbus,835957
 Fort Worth,812238
 Charlotte,809958
