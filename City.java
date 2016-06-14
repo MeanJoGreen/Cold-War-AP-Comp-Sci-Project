@@ -1,18 +1,38 @@
-
 import java.util.*;
 public class City {
    final Random random = new Random();
+   private boolean destroyed;
+   private int population;
+   private String name;
+   private int nuke;
+   
 
-   public void makeCity(String name, int pop, int order){
-      boolean destroyed = false;
-      int population = pop;
-      int placement = order;
-      int nuke = random.nextInt(7);
-      int country = 1;
-      if (placement <20){
-         country = 2;
-      }
-   } 
-   public int nukeTotal( 
-}
+   public City(String n, int pop){
+      destroyed = false;
+      population = pop;
+      name = n;
+      nuke = random.nextInt(7);
+   }
     
+   public boolean compareTo (String target) {
+   // compare name to target return true if equal, false otherwise
+      if (target.equals(name)){
+         return true; 
+      }
+      else {
+         return false;
+      }
+   }
+   
+   public int nukes (){ 
+      return nuke;
+   }
+   
+   public int getPopulation(){
+      return population; 
+   }
+   
+   public void die(){
+      destroyed = true;
+   }
+}
