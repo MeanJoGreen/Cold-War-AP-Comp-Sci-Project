@@ -24,8 +24,15 @@ public class City {
       }
    }
    
-   public int nukes (){ 
+   public int getNukes (){ 
+      if (destroyed == true) { 
+          return 0;
+      }
       return nuke;
+   }
+   
+   public String getName (){ 
+      return name;
    }
    
    public int getPopulation(){
