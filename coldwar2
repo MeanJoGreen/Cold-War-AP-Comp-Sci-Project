@@ -11,7 +11,7 @@ public class ColdWar2 {
       System.out.println("What city would you like to nuke?");
       //System.out.println("For how many nukes you have type Nuke");
       String demand = request.next(); 
-      return demand;     
+      return demand;
    }
 
 
@@ -27,9 +27,6 @@ public class ColdWar2 {
          String name = split[0];
          String population = split[1];
          int pop = Integer.valueOf(population);
-         System.out.print(name);
-         System.out.println(population);
-      
          if(i < 20){
             ussrArray[i] = new City(name, pop);     
          }
@@ -37,15 +34,16 @@ public class ColdWar2 {
             int x = i - 20;
             usArray[x] = new City(name, pop);     
          }
+       }
             //k++;
             
-         // PRINT THE RULES OF THE GAME ONE TIME
-         
-           String target;
+         // PRINT THE RULES OF THE GAME ONE TIME    
            
          // PRINT INSTRUCTIONS TO CHOOSE 10 USSR CITIES
-           for (i = 0; i < 10; i++){
+           String target;
+           for (int i = 0; i < 10; i++){
              boolean found = false;
+             //target dosent work with turn returning look at turn
              do {
                target = turn();
                for (cityID = 0; cityID < 20; cityID++) {
@@ -56,13 +54,15 @@ public class ColdWar2 {
                }
              }
              while (found == false);
-             ussrArray[cityID].die();
+             ussrArray[cityID].nuked();
+             System.out.println(ussrArray[cityID].getName() + "is dead");
+
              // print that you nuked ussrArray[cityID].getName();
            }
            // Print "Successfully destroyed 10 russian cities
            
            // PRINT INSTRUCTIONS TO CHOOSE 10 US CITIES
-           for (i = 0; i < 10; i++){
+           for (int i = 0; i < 10; i++){
              boolean found = false;
              do {
                target = turn();
@@ -74,7 +74,8 @@ public class ColdWar2 {
                }
              }
              while (found == false);
-             usArray[cityID].die();
+             usArray[cityID].nuked();
+             System.out.println(usArray[cityID].getName() + "is dead");
              // print that you nuked usArray[cityID].getName();
            }
            // Print "Successfully destroyed 10 us cities
@@ -83,22 +84,20 @@ public class ColdWar2 {
            
            for (cityID = 0; cityID < 20; cityID++) {
                   ussrNukesLeft += ussrArray[cityID].getNukes();
-              }
            }
            
            int usNukesLeft = 0;
            
            for (cityID = 0; cityID < 20; cityID++) {
                   usNukesLeft += usArray[cityID].getNukes();
-              }
            }
            
-           // Print results of game with usNukesLeft and ussrNukesLeft
-     
-           
+          // Print results of game with usNukesLeft and ussrNukesLeft
+          }
+}           
            
          
-      }
+      
    
    
      /*  try {
@@ -119,4 +118,3 @@ public class ColdWar2 {
    	} 
    */
   // }
-
