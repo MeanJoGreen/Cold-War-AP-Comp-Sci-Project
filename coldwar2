@@ -52,7 +52,6 @@ public class ColdWar2 {
             System.out.println("You Destroyed " + ussrArray[foundCity].getNukes() + " nukes.");
             ussrArray[foundCity].nuked();
             System.out.println();
-
       }
    
    }   
@@ -106,70 +105,35 @@ public class ColdWar2 {
 
    public static void main (String[] args)throws FileNotFoundException{
       array();
+      text();        
       int cityID;
       int foundCity = 0;
       String target; 
       attackUSSR();
       attackUS();      
-      // PRINT THE RULES OF THE GAME ONE TIME    
-      //text();  
-      /*          
-      for (int i = 0; i < 2; i++){
-         boolean found = false;
-             //target dosent work with turn returning look at turn
-         do {
-            target = turn("russian");
-            for (cityID = 0; cityID < 20 ; cityID++) {
-               if (ussrArray[cityID].compareTo(target) == true){//need to make so it wont let you call city twice
-                  found = true;
-                  foundCity = cityID;
-               }
-            }
-         }
-             while (found == false);
-         ussrArray[foundCity].nuked();
-         System.out.println(ussrArray[foundCity].getName() + " is dead");
-      
-             // print that you nuked ussrArray[cityID].getName();
-      }
-           // Print "Successfully destroyed 10 russian cities
-      System.out.println("You succesfully destroyed 2 russian cites");
-      */
-           // PRINT INSTRUCTIONS TO CHOOSE 2 US CITIES
-     /* for (int i = 0; i < 2; i++){
-         boolean found = false;
-             //target dosent work with turn returning look at turn
-         do {
-            target = turn("United States");
-            for (cityID = 0; cityID < 20 ; cityID++) {
-               if (usArray[cityID].compareTo(target) == true){
-                  found = true;
-                  foundCity = cityID;
-               }
-            }
-         }
-             while (found == false);
-         usArray[foundCity].nuked();
-         System.out.println(usArray[foundCity].getName() + " is dead");
-      }
-           // Print "Successfully destroyed 10 us cities
-     */       
-      
       //Count the nukes
       int ussrNukesLeft = 0;
+      int ussrPopLeft = 0;
            
       for (cityID = 0; cityID < 20; cityID++) {
          ussrNukesLeft += ussrArray[cityID].getNukes();
+         ussrPopLeft += ussrArray[cityID].getPopulation();
+
       }
            
       int usNukesLeft = 0;
+      int usPopLeft = 0;
            
       for (cityID = 0; cityID < 20; cityID++) {
          usNukesLeft += usArray[cityID].getNukes();
+         usPopLeft += usArray[cityID].getPopulation();
       }
       System.out.println("Russia's nukes: " + ussrNukesLeft);
-      System.out.println("United States nukes: " + usNukesLeft);   // Print results of game with usNukesLeft and ussrNukesLeft
-   // Print results of game with usNukesLeft and ussrNukesLeft
+      System.out.println("United States nukes: " + usNukesLeft);
+      System.out.println("Russian death toll: " + ussrPopLeft);
+      System.out.println("United States death toll: " + usPopLeft);   
+      // Print results of game with usNukesLeft and ussrNukesLeft
+      // Print results of game with usNukesLeft and ussrNukesLeft
 
       //Determine the winner
       if(ussrNukesLeft > usNukesLeft){
