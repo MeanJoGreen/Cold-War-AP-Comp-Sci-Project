@@ -14,9 +14,9 @@ public class City {
       nuke = random.nextInt(7);
    }
     
-   public boolean compareTo (String target) {
+   public boolean compareTo (String string) {
    // compare name to target return true if equal, false otherwise
-      if (target.equals(name)){
+      if (string.equals(name)){
          return true; 
       }
       else {
@@ -39,7 +39,7 @@ public class City {
       return population; 
    }
    
-   public void die(){
+   public void nuked(){
       destroyed = true;
    }
 }
