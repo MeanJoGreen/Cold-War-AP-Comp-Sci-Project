@@ -12,6 +12,7 @@ public class ColdWar2 {
       //System.out.println("For how many nukes you have type Nuke");
       String demand = request.next(); 
       return demand;
+ 
    }
 
 
@@ -40,22 +41,23 @@ public class ColdWar2 {
          // PRINT THE RULES OF THE GAME ONE TIME    
            
          // PRINT INSTRUCTIONS TO CHOOSE 10 USSR CITIES
+           int foundCity = 0;
            String target;
-           for (int i = 0; i < 10; i++){
+           for (int i = 0; i < 2; i++){
              boolean found = false;
              //target dosent work with turn returning look at turn
              do {
                target = turn();
-               for (cityID = 0; cityID < 20; cityID++) {
+               for (cityID = 0; cityID < 20 ; cityID++) {
                   if (ussrArray[cityID].compareTo(target) == true){
                       found = true;
-                      continue; // Found the target, exit for loop
+                      foundCity = cityID;
                   }
                }
              }
              while (found == false);
-             ussrArray[cityID].nuked();
-             System.out.println(ussrArray[cityID].getName() + "is dead");
+             ussrArray[foundCity].nuked();
+             System.out.println(ussrArray[foundCity].getName() + " is dead");
 
              // print that you nuked ussrArray[cityID].getName();
            }
@@ -64,18 +66,19 @@ public class ColdWar2 {
            // PRINT INSTRUCTIONS TO CHOOSE 10 US CITIES
            for (int i = 0; i < 10; i++){
              boolean found = false;
+             //target dosent work with turn returning look at turn
              do {
                target = turn();
-               for (cityID = 0; cityID < 20; cityID++) {
+               for (cityID = 0; cityID < 20 ; cityID++) {
                   if (usArray[cityID].compareTo(target) == true){
                       found = true;
-                      continue; // Found the target, exit for loop
+                      foundCity = cityID;
                   }
                }
              }
              while (found == false);
-             usArray[cityID].nuked();
-             System.out.println(usArray[cityID].getName() + "is dead");
+             usArray[foundCity].nuked();
+             System.out.println(usArray[foundCity].getName() + " is dead");
              // print that you nuked usArray[cityID].getName();
            }
            // Print "Successfully destroyed 10 us cities
