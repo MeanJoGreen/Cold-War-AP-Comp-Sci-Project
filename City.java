@@ -6,12 +6,11 @@ public class City {
    private String name;
    private int nuke;
    
-
    public City(String n, int pop){
       destroyed = false;
       population = pop;
       name = n;
-      nuke = random.nextInt(7);
+      nuke = random.nextInt(7) + 5;
    }
     
    public boolean compareTo (String string) {
@@ -41,5 +40,8 @@ public class City {
    
    public void nuked(){
       destroyed = true;
+   }
+   public boolean isNuked(){
+      return destroyed;
    }
 }
