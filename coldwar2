@@ -6,9 +6,9 @@ public class ColdWar2 {
    private static City[] usArray = new City[20];
    private static City[] ussrArray = new City[20];
 
-   public static String turn(){
+   public static String turn(String country){
       Scanner request = new Scanner(System.in);
-      System.out.println("What city would you like to nuke?");
+      System.out.println("What " + country + " city would you like to nuke?");
       //System.out.println("For how many nukes you have type Nuke");
       String demand = request.next(); 
       return demand;
@@ -47,9 +47,9 @@ public class ColdWar2 {
              boolean found = false;
              //target dosent work with turn returning look at turn
              do {
-               target = turn();
+               target = turn("russian");
                for (cityID = 0; cityID < 20 ; cityID++) {
-                  if (ussrArray[cityID].compareTo(target) == true){
+                  if (ussrArray[cityID].compareTo(target) == true){//need to make so it wont let you call city twice
                       found = true;
                       foundCity = cityID;
                   }
@@ -62,13 +62,14 @@ public class ColdWar2 {
              // print that you nuked ussrArray[cityID].getName();
            }
            // Print "Successfully destroyed 10 russian cities
-           
-           // PRINT INSTRUCTIONS TO CHOOSE 10 US CITIES
-           for (int i = 0; i < 10; i++){
+           System.out.println("You succesfully destroyed 2 russian cites");
+
+           // PRINT INSTRUCTIONS TO CHOOSE 2 US CITIES
+           for (int i = 0; i < 2; i++){
              boolean found = false;
              //target dosent work with turn returning look at turn
              do {
-               target = turn();
+               target = turn("United States");
                for (cityID = 0; cityID < 20 ; cityID++) {
                   if (usArray[cityID].compareTo(target) == true){
                       found = true;
