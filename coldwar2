@@ -3,16 +3,25 @@ import java.util.*;
 import java.awt.*;
 
 public class ColdWar2 {
-   public static void main (String[] args)throws FileNotFoundException{
-      City[] usArray = new City[20];
-      City[] ussrArray = new City[20];
-      
-   Scanner input = new Scanner(System.in);
-   File file = new File("cities.txt");
-   input = new Scanner(file);
-   int k = 1;
+   private static City[] usArray = new City[20];
+   private static City[] ussrArray = new City[20];
 
-   for (int i = 0; i < 40; i++){
+   public static String turn(){
+      Scanner request = new Scanner(System.in);
+      System.out.println("What city would you like to nuke?");
+      //System.out.println("For how many nukes you have type Nuke");
+      String demand = request.next(); 
+      return demand;     
+   }
+
+
+   public static void main (String[] args)throws FileNotFoundException{
+      Scanner input = new Scanner(System.in);
+      File file = new File("cities.txt");
+      input = new Scanner(file);
+      int cityID;
+   
+      for (int i = 0; i < 40; i++){
          String data = input.nextLine();
          String[] split = data.split(",");
          String name = split[0];
@@ -20,18 +29,78 @@ public class ColdWar2 {
          int pop = Integer.valueOf(population);
          System.out.print(name);
          System.out.println(population);
-
-         if(k <=20){
+      
+         if(i < 20){
             ussrArray[i] = new City(name, pop);     
          }
-         else if(k >=21){
-         int x = i - 20;
+         else if(i >= 20){
+            int x = i - 20;
             usArray[x] = new City(name, pop);     
          }
-         k++;
-  }
-  
-  
+            //k++;
+            
+         // PRINT THE RULES OF THE GAME ONE TIME
+         
+           String target;
+           
+         // PRINT INSTRUCTIONS TO CHOOSE 10 USSR CITIES
+           for (i = 0; i < 10; i++){
+             boolean found = false;
+             do {
+               target = turn();
+               for (cityID = 0; cityID < 20; cityID++) {
+                  if (ussrArray[cityID].compareTo(target) == true){
+                      found = true;
+                      continue; // Found the target, exit for loop
+                  }
+               }
+             }
+             while (found == false);
+             ussrArray[cityID].die();
+             // print that you nuked ussrArray[cityID].getName();
+           }
+           // Print "Successfully destroyed 10 russian cities
+           
+           // PRINT INSTRUCTIONS TO CHOOSE 10 US CITIES
+           for (i = 0; i < 10; i++){
+             boolean found = false;
+             do {
+               target = turn();
+               for (cityID = 0; cityID < 20; cityID++) {
+                  if (usArray[cityID].compareTo(target) == true){
+                      found = true;
+                      continue; // Found the target, exit for loop
+                  }
+               }
+             }
+             while (found == false);
+             usArray[cityID].die();
+             // print that you nuked usArray[cityID].getName();
+           }
+           // Print "Successfully destroyed 10 us cities
+             
+           int ussrNukesLeft = 0;
+           
+           for (cityID = 0; cityID < 20; cityID++) {
+                  ussrNukesLeft += ussrArray[cityID].getNukes();
+              }
+           }
+           
+           int usNukesLeft = 0;
+           
+           for (cityID = 0; cityID < 20; cityID++) {
+                  usNukesLeft += usArray[cityID].getNukes();
+              }
+           }
+           
+           // Print results of game with usNukesLeft and ussrNukesLeft
+     
+           
+           
+         
+      }
+   
+   
      /*  try {
    			File fifle = new File("WarText.txt");
    			FileReader fileReader = new FileReader(fifle);
@@ -46,14 +115,8 @@ public class ColdWar2 {
    			System.out.println(stringBuffer.toString());
    		}  
       catch (IOException e) {
-			e.printStackTrace();
-		} 
-*/
-   }
-   public static void turn(){
-      Scanner request = new Scanner(System.in);
-      System.out.println("What city would you like to nuke?");
-      System.out.println("For how many nukes you have type Nuke");
-      String demand = request.next();      
-   }
-}
+   		e.printStackTrace();
+   	} 
+   */
+  // }
+
