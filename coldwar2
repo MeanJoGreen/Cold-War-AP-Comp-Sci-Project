@@ -10,7 +10,7 @@ public class ColdWar2 {
       int cityID;
       int foundCity = 0;
       String target;  
-      for (int i = 0; i < 2; i++){
+      for (int i = 0; i < 5; i++){
          boolean found = false;
              //target dosent work with turn returning look at turn
          do {
@@ -35,7 +35,7 @@ public class ColdWar2 {
       int cityID;
       int foundCity = 0;
       String target;  
-      for (int i = 0; i < 2; i++){
+      for (int i = 0; i < 5; i++){
          boolean found = false;
              //target dosent work with turn returning look at turn
          do {
