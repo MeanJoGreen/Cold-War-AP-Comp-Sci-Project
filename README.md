@@ -12,5 +12,8 @@ first 20 will be russian and the next 20 will be united states citys.
 
 the diffrent russianHeath, unitedHealth, unitedNuke are all garbage classes that I had made before scrapping them. the reason i leave them is becasue It shows where some of the seemingly lost time has gone. I really struggled with the concept of classes and objects fo rthe mojority of this program. but in the last couple of weeks it clicked and this is the outcome tht i have gotten from these few days of understanding what i am doing.
 
+The file named ColdWar2.Not Complete. Does not run.Player Vs. A.I. is a version that i was workign on to make a A.I. playing as ruissia.
+I didnt get this finished in tiem but it shows what i have been working on the past couple of days. 
+
 if you have any questions feel free to email me at:
 gmccauley@springstreet.org
