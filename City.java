@@ -1,3 +1,9 @@
+//* City.java
+ //* Assignment: Cold War
+ //*this is where the oject city gets created. Methode array() in coldwar2 calls this to allocate citys to arrays. 
+ //* @version 6/21/2016
+ //* @author:David McCauley
+ //*/
 import java.util.*;
 public class City {
    final Random random = new Random();
@@ -6,6 +12,7 @@ public class City {
    private String name;
    private int nuke;
    
+   //creates the object
    public City(String n, int pop){
       destroyed = false;
       population = pop;
