@@ -35,12 +35,23 @@ public class City {
    }
    
    public int getPopulation(){
+      if (destroyed == true) {
+          return 0;
+      } 
+      return population; 
+   }
+   
+   public int getCasualties(){
+      if (destroyed == false) {
+          return 0;
+      } 
       return population; 
    }
    
    public void nuked(){
       destroyed = true;
    }
+   
    public boolean isNuked(){
       return destroyed;
    }
