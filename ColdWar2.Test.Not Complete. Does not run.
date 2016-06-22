@@ -1,0 +1,171 @@
+ //* ColdWar2.java
+ //* Assignment: Cold War
+ //*This is a in progress version of my game where it is only one player and there i a ai on the other end. i didnt finish it in 
+ //*time but it shows what i have been working on. (DOES NOT RUN.....NOT FINAL GAME.....DO NOT GRADE THIS)
+ //* @version 6/21/2016
+ //* @author:David McCauley
+ //*/
+ 
+import java.io.*;
+import java.util.*;
+import java.awt.*;
+	
+public class ColdWar2 {
+   private static City[] usArray = new City[20];
+   private static City[] ussrArray = new City[20];
+   Random rand = new Random();
+
+   public static int randomGen(){
+      Random random = new Random();
+      int rand = random.nextInt(20);
+      while (ussrArray[rand].isNuked() == true){
+         rand = random.nextInt(20);
+      
+      }
+      return rand;
+   }
+   
+   public static void attack(City[] cityArray, String country){
+      int cityID;
+      int foundCity = 0;
+      String target;
+      //This is where you set how many cities you want to attack
+      for (int i = 0; i < 1; i++){
+         boolean found = false;
+      //target dosent work with turn returning look at turn
+         do {
+            target = turn(country);
+            for (cityID = 0; cityID < 20 ; cityID++) {
+               if (cityArray[cityID].compareTo(target) == true){
+                  found = true;
+                  foundCity = cityID;
+               }
+            }
+         
+         }
+         while (found == false);
+         System.out.println(cityArray[foundCity].getName() + " is dead");
+         System.out.println("You Destroyed " + cityArray[foundCity].getNukes() + " nukes.");
+         cityArray[foundCity].nuked();
+         System.out.println();
+      }
+   
+   }
+   
+   public static void attackAI(City[] cityArray, String country){
+      int cityID;
+      int foundCity = 0;
+      int target;
+      //This is where you set how many cities you want to attack
+         boolean found = false;
+         foundCity = randomGen();
+      
+         while (found == false);
+         System.out.println(cityArray[foundCity].getName() + " is dead");
+         System.out.println("You Destroyed " + cityArray[foundCity].getNukes() + " nukes.");
+         cityArray[foundCity].nuked();
+         System.out.println();
+   }
+   
+   
+
+   
+   
+   public static void array()throws FileNotFoundException{
+      Scanner input = new Scanner(System.in);
+      File file = new File("cities.txt");
+      input = new Scanner(file);
+      for (int i = 0; i < 40; i++){
+         String data = input.nextLine();
+         String[] split = data.split(",");
+         String name = split[0];
+         String population = split[1];
+         int pop = Integer.valueOf(population);
+         if(i < 20){
+            ussrArray[i] = new City(name, pop);
+         }
+         else if(i >= 20){
+            int x = i - 20;
+            usArray[x] = new City(name, pop);
+         }
+      }
+   }
+   
+   //this is where you get a name of a city
+   public static String turn(String country){
+      Scanner request = new Scanner(System.in);
+      System.out.println("Choose a " + country + " city would you like to nuke?");
+   //System.out.println("For how many nukes you have type Nuke");
+      String demand = request.next();
+      return demand;
+   
+   }
+	
+   public static void text(){
+      try {
+         File fifle = new File("WarText.txt");
+         FileReader fileReader = new FileReader(fifle);
+         BufferedReader bufferedReader = new BufferedReader(fileReader);
+         StringBuffer stringBuffer = new StringBuffer();
+         String line;
+         while ((line = bufferedReader.readLine()) != null) {
+            stringBuffer.append(line);
+            stringBuffer.append("\n");
+         }
+         fileReader.close();
+         System.out.println(stringBuffer.toString());
+      }
+      catch (IOException e) {
+         e.printStackTrace();
+      }
+   
+   }
+	
+   public static void main (String[] args)throws FileNotFoundException{
+      array();
+      text();
+      int cityID;
+      int foundCity = 0;
+      String target;
+      
+      //this is the ai
+      for(int o = 1; o <= 20; o++){
+         if((o % 2) == 0){
+            attack(ussrArray, "Russian");
+         }
+         else if((o % 2) == 1){
+            //this is a new method.
+            attackAI(usArray, "United States");
+         }
+      }
+      
+      //Count the nukes
+      int ussrNukesLeft = 0;
+      int ussrPopLeft = 0;
+      // i need to fix the pop counter so that it only tallies the destroyed.
+      for (cityID = 0; cityID < 20; cityID++) {
+         ussrNukesLeft += ussrArray[cityID].getNukes();      
+      }
+   
+      int usNukesLeft = 0;
+      int usPopLeft = 0;
+   
+      for (cityID = 0; cityID < 20; cityID++) {
+         usNukesLeft += usArray[cityID].getNukes();
+      }
+      System.out.println("Russia's nukes: " + ussrNukesLeft);
+      System.out.println("United States nukes: " + usNukesLeft);
+      System.out.println("Russian death toll: " + ussrPopLeft);
+      System.out.println("United States death toll: " + usPopLeft);
+   // Print results of game with usNukesLeft and ussrNukesLeft
+   // Print results of game with usNukesLeft and ussrNukesLeft
+   
+   //Determine the winner
+      if(ussrNukesLeft > usNukesLeft){
+         System.out.println("Russia Wins");
+      }
+      else if(ussrNukesLeft < usNukesLeft){
+         System.out.println("United States win");
+      }
+   }
+}
