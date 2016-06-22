@@ -1,3 +1,10 @@
+ //* ColdWar2.java
+ //* Assignment: Cold War
+ //*this program is to run the game. This is where all of the proccesign happens
+ //* @version 6/21/2016
+ //* @author:David McCauley
+ //*/
+ 
 import java.io.*;
 import java.util.*;
 import java.awt.*;
@@ -5,7 +12,7 @@ import java.awt.*;
 public class ColdWar2 {
    private static City[] usArray = new City[20];
    private static City[] ussrArray = new City[20];
-
+   //attacking the united stated
    public static void attackUS(){ 
       int cityID;
       int foundCity = 0;
@@ -31,6 +38,8 @@ public class ColdWar2 {
       }
    
    }
+   
+   //attacking the ussr
    public static void attackUSSR(){ 
       int cityID;
       int foundCity = 0;
@@ -55,6 +64,8 @@ public class ColdWar2 {
       }
    
    }   
+   
+   //puts all of the citys into arrays as objects. Arrays saved globally
    public static void array()throws FileNotFoundException{ 
       Scanner input = new Scanner(System.in);
       File file = new File("cities.txt");
@@ -74,6 +85,8 @@ public class ColdWar2 {
          }
       }
    }    
+   
+   //the scanner to request for a city to attack. gets called by attackUs && attackUSSR
    public static String turn(String country){
       Scanner request = new Scanner(System.in);
       System.out.println("Choose a " + country + " city would you like to nuke?");
@@ -83,6 +96,7 @@ public class ColdWar2 {
    
    }
    
+   //reads intro text
    public static void text(){
       try {
          File fifle = new File("WarText.txt");
