@@ -1,52 +1,61 @@
 import java.io.*;
 import java.util.*;
 import java.awt.*;
-	
+
 public class ColdWar2 {
    private static City[] usArray = new City[20];
    private static City[] ussrArray = new City[20];
-   Random rand = new Random();
 
-   public static void randomGen(){
-      Random random = new Random();
-      int rand = random.nextInt(20);
-      while (ussrArray[rand].isNuked() == true){
-         rand = random.nextInt(20);
-      
-      }
-   }
-   
-   public static void attack(City[] cityArray, String country){
+   public static void attackUS(){ 
       int cityID;
       int foundCity = 0;
-      String target;
-      //This is where you set how many cities you want to attack
-      for (int i = 0; i < 2; i++){
+      String target;  
+      for (int i = 0; i < 5; i++){
          boolean found = false;
-      //target dosent work with turn returning look at turn
+             //target dosent work with turn returning look at turn
          do {
-            target = turn(country);
+            target = turn("United States");
             for (cityID = 0; cityID < 20 ; cityID++) {
-               if (cityArray[cityID].compareTo(target) == true){
+               if (usArray[cityID].compareTo(target) == true){
                   found = true;
                   foundCity = cityID;
                }
             }
-         
+
          }
          while (found == false);
-         System.out.println(cityArray[foundCity].getName() + " is dead");
-         System.out.println("You Destroyed " + cityArray[foundCity].getNukes() + " nukes.");
-         cityArray[foundCity].nuked();
-         System.out.println();
+            System.out.println(usArray[foundCity].getName() + " is dead");
+            System.out.println("You Destroyed " + usArray[foundCity].getNukes() + " nukes.");
+            usArray[foundCity].nuked();
+            System.out.println();            
       }
    
    }
+   public static void attackUSSR(){ 
+      int cityID;
+      int foundCity = 0;
+      String target;  
+      for (int i = 0; i < 5; i++){
+         boolean found = false;
+             //target dosent work with turn returning look at turn
+         do {
+            target = turn("Russian");
+            for (cityID = 0; cityID < 20 ; cityID++) {
+               if (ussrArray[cityID].compareTo(target) == true){
+                  found = true;
+                  foundCity = cityID;
+               }
+            }
+         }
+         while (found == false);
+            System.out.println(ussrArray[foundCity].getName() + " is dead");
+            System.out.println("You Destroyed " + ussrArray[foundCity].getNukes() + " nukes.");
+            ussrArray[foundCity].nuked();
+            System.out.println();
+      }
    
-   
-   
-   
-   public static void array()throws FileNotFoundException{
+   }   
+   public static void array()throws FileNotFoundException{ 
       Scanner input = new Scanner(System.in);
       File file = new File("cities.txt");
       input = new Scanner(file);
@@ -57,25 +66,23 @@ public class ColdWar2 {
          String population = split[1];
          int pop = Integer.valueOf(population);
          if(i < 20){
-            ussrArray[i] = new City(name, pop);
+            ussrArray[i] = new City(name, pop);     
          }
          else if(i >= 20){
             int x = i - 20;
-            usArray[x] = new City(name, pop);
+            usArray[x] = new City(name, pop);     
          }
       }
-   }
-   
-   //this is where you get a name of a city
+   }    
    public static String turn(String country){
       Scanner request = new Scanner(System.in);
       System.out.println("Choose a " + country + " city would you like to nuke?");
-   //System.out.println("For how many nukes you have type Nuke");
-      String demand = request.next();
+      //System.out.println("For how many nukes you have type Nuke");
+      String demand = request.next(); 
       return demand;
    
    }
-	
+   
    public static void text(){
       try {
          File fifle = new File("WarText.txt");
@@ -86,51 +93,55 @@ public class ColdWar2 {
          while ((line = bufferedReader.readLine()) != null) {
             stringBuffer.append(line);
             stringBuffer.append("\n");
-         }
+         } 
          fileReader.close();
          System.out.println(stringBuffer.toString());
-      }
+      }  
       catch (IOException e) {
          e.printStackTrace();
-      }
+      } 
    
    }
-	
+
    public static void main (String[] args)throws FileNotFoundException{
       array();
-      text();
+      text();        
       int cityID;
       int foundCity = 0;
-      String target;
-      
-      attack(usArray, "United States");
+      String target; 
+      attackUSSR();
+      attackUS();      
       //Count the nukes
       int ussrNukesLeft = 0;
       int ussrPopLeft = 0;
-      // i need to fix the pop counter so that it only tallies the destroyed.
+           
       for (cityID = 0; cityID < 20; cityID++) {
-         ussrNukesLeft += ussrArray[cityID].getNukes();      
+         ussrNukesLeft += ussrArray[cityID].getNukes();
+         ussrPopLeft += ussrArray[cityID].getPopulation();
+
       }
-   
+           
       int usNukesLeft = 0;
       int usPopLeft = 0;
-   
+           
       for (cityID = 0; cityID < 20; cityID++) {
          usNukesLeft += usArray[cityID].getNukes();
+         usPopLeft += usArray[cityID].getPopulation();
       }
       System.out.println("Russia's nukes: " + ussrNukesLeft);
       System.out.println("United States nukes: " + usNukesLeft);
       System.out.println("Russian death toll: " + ussrPopLeft);
-      System.out.println("United States death toll: " + usPopLeft);
-   // Print results of game with usNukesLeft and ussrNukesLeft
-   // Print results of game with usNukesLeft and ussrNukesLeft
-   
-   //Determine the winner
+      System.out.println("United States death toll: " + usPopLeft);   
+      // Print results of game with usNukesLeft and ussrNukesLeft
+      // Print results of game with usNukesLeft and ussrNukesLeft
+
+      //Determine the winner
       if(ussrNukesLeft > usNukesLeft){
          System.out.println("Russia Wins");
       }
-      else if(ussrNukesLeft < usNukesLeft){
+      else if(ussrNukesLeft < usNukesLeft){  
          System.out.println("United States win");
-      }
-   }
-}
+      }     
+         }
+}             
+
