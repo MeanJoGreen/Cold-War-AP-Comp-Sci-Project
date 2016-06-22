@@ -5,18 +5,29 @@ import java.awt.*;
 public class ColdWar2 {
    private static City[] usArray = new City[20];
    private static City[] ussrArray = new City[20];
-	
-   public static void attackUS(){
+   Random rand = new Random();
+
+   public static void randomGen(){
+      Random random = new Random();
+      int rand = random.nextInt(20);
+      while (ussrArray[rand].isNuked() == true){
+         rand = random.nextInt(20);
+      
+      }
+   }
+   
+   public static void attack(City[] cityArray, String country){
       int cityID;
       int foundCity = 0;
       String target;
+      //This is where you set how many cities you want to attack
       for (int i = 0; i < 2; i++){
          boolean found = false;
       //target dosent work with turn returning look at turn
          do {
-            target = turn("United States");
+            target = turn(country);
             for (cityID = 0; cityID < 20 ; cityID++) {
-               if (usArray[cityID].compareTo(target) == true){
+               if (cityArray[cityID].compareTo(target) == true){
                   found = true;
                   foundCity = cityID;
                }
@@ -24,37 +35,17 @@ public class ColdWar2 {
          
          }
          while (found == false);
-         System.out.println(usArray[foundCity].getName() + " is dead");
-         System.out.println("You Destroyed " + usArray[foundCity].getNukes() + " nukes.");
-         usArray[foundCity].nuked();
+         System.out.println(cityArray[foundCity].getName() + " is dead");
+         System.out.println("You Destroyed " + cityArray[foundCity].getNukes() + " nukes.");
+         cityArray[foundCity].nuked();
          System.out.println();
       }
    
    }
-   public static void attackUSSR(){
-      int cityID;
-      int foundCity = 0;
-      String target;
-      for (int i = 0; i < 2; i++){
-         boolean found = false;
-      //target dosent work with turn returning look at turn
-         do {
-            target = turn("Russian");
-            for (cityID = 0; cityID < 20 ; cityID++) {
-               if (ussrArray[cityID].compareTo(target) == true){
-                  found = true;
-                  foundCity = cityID;
-               }
-            }
-         }
-         while (found == false);
-         System.out.println(ussrArray[foundCity].getName() + " is dead");
-         System.out.println("You Destroyed " + ussrArray[foundCity].getNukes() + " nukes.");
-         ussrArray[foundCity].nuked();
-         System.out.println();
-      }
    
-   }
+   
+   
+   
    public static void array()throws FileNotFoundException{
       Scanner input = new Scanner(System.in);
       File file = new File("cities.txt");
@@ -74,6 +65,8 @@ public class ColdWar2 {
          }
       }
    }
+   
+   //this is where you get a name of a city
    public static String turn(String country){
       Scanner request = new Scanner(System.in);
       System.out.println("Choose a " + country + " city would you like to nuke?");
@@ -109,9 +102,9 @@ public class ColdWar2 {
       int cityID;
       int foundCity = 0;
       String target;
-      attackUSSR();
-      attackUS();
-   //Count the nukes
+      
+      attack(usArray, "United States");
+      //Count the nukes
       int ussrNukesLeft = 0;
       int ussrPopLeft = 0;
       // i need to fix the pop counter so that it only tallies the destroyed.
